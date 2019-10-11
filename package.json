@@ -1,5 +1,5 @@
 {
-  "name": "eslint-loft-rules",
+  "name": "eslint-plugin-loft",
   "version": "1.0.0",
   "description": "Loft's ESLint custom rules",
   "keywords": [
