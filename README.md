@@ -10,22 +10,22 @@ You'll first need to install [ESLint](http://eslint.org):
 $ npm i eslint --save-dev
 ```
 
-Next, install `eslint-plugin-loft`:
+Next, install `eslint-loft-rules`:
 
 ```
-$ npm install eslint-plugin-loft --save-dev
+$ npm install eslint-loft-rules --save-dev
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-loft` globally.
+**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-loft-rules` globally.
 
 ## Usage
 
-Add `loft` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `eslint-loft-rules` to the plugins section of your `.eslintrc` configuration file:
 
 ```json
 {
     "plugins": [
-        "loft"
+        "eslint-loft-rules"
     ]
 }
 ```
@@ -36,16 +36,11 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "loft/rule-name": 2
+        "loft/prefer-compose": 2
     }
 }
 ```
 
 ## Supported Rules
 
-* Fill in provided rules here
-
-
-
-
-
+* prefer-compose: Rule that suggests the use of compose, instead of multiple HOC
