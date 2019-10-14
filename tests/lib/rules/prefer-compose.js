@@ -54,6 +54,9 @@ ruleTester.run("prefer-connect", rule, {
                 const smokeTry2 = withIntl(smokeTry1);
                 export default connect(mapStateToProps, {setUserFeatureFlags})(smokeTry2);
             `,
+        },
+        {
+            code: "const trimStr = `\$\{str\}`.trim();"
         }
     ],
 
