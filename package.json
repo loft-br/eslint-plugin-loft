@@ -7,6 +7,10 @@
     "eslintplugin",
     "eslint-plugin"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Loft-Brasil/eslint-plugin-loft"
+  },
   "author": "Ramon",
   "main": "lib/index.js",
   "scripts": {
