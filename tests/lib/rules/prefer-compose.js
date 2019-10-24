@@ -2,13 +2,14 @@
  * @fileoverview Enforces the use of connect rather than fall into HOC composition hell
  * @author Ramon
  */
-"use strict";
+'use strict';
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/prefer-compose"), RuleTester = require("eslint").RuleTester;
+const rule = require('../../../lib/rules/prefer-compose');
+const RuleTester = require('eslint').RuleTester;
 
 RuleTester.setDefaultConfig({
     parserOptions: {
@@ -16,18 +17,18 @@ RuleTester.setDefaultConfig({
         ecmaFeatures: {
             jsx: true,
         },
-        sourceType: "module",
+        sourceType: 'module',
     }
 });
 
-const USE_COMPOSE_TWO_OR_MORE = "Use compose for 2 or more HOC";
+const USE_COMPOSE_TWO_OR_MORE = 'Use compose for 2 or more HOC';
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester();
-ruleTester.run("prefer-connect", rule, {
+ruleTester.run('prefer-compose', rule, {
 
     valid: [
         {
@@ -56,24 +57,24 @@ ruleTester.run("prefer-connect", rule, {
             `,
         },
         {
-            code: "const trimStr = `\$\{str\}`.trim();"
+            code: 'const trimStr = `\$\{str\}`.trim();'
         }
     ],
 
     invalid: [
         {
-            code: "export default injectIntl(withStyles(styles)(Step13Value));",
+            code: 'export default injectIntl(withStyles(styles)(Step13Value));',
             errors: [{
                 message: USE_COMPOSE_TWO_OR_MORE,
                 type: 'CallExpression',
             }],
         },
         {
-            code: "export default withStyles(styles)(injectIntl(About));",
+            code: 'export default withStyles(styles)(injectIntl(About));',
             errors: [
                 {
-                message: USE_COMPOSE_TWO_OR_MORE,
-                type: 'CallExpression',
+                    message: USE_COMPOSE_TWO_OR_MORE,
+                    type: 'CallExpression',
                 }
             ],
         },
@@ -98,7 +99,7 @@ ruleTester.run("prefer-connect", rule, {
             ],
         },
         {
-            code: "export default withRouter(compose(withStyles(styles), withIntl)(Comparison))",
+            code: 'export default withRouter(compose(withStyles(styles), withIntl)(Comparison))',
             errors: [
                 {
                     message: USE_COMPOSE_TWO_OR_MORE,
