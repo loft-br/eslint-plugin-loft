@@ -1,7 +1,3 @@
-/**
- * @fileoverview Enforces the use of connect rather than fall into HOC composition hell
- * @authors Ramon, Luigi Perotti
- */
 'use strict';
 
 //------------------------------------------------------------------------------
@@ -38,7 +34,6 @@ const options = [{
 
 const ruleTester = new RuleTester();
 ruleTester.run('prefer-compose', rule, {
-
     valid: [
         {
             options,
