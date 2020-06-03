@@ -1,7 +1,3 @@
-/**
- * @fileoverview Enforces the use of connect rather than fall into HOC composition hell
- * @author Luigi Perotti
- */
 'use strict';
 
 //------------------------------------------------------------------------------
