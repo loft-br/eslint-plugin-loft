@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/Loft-Brasil/eslint-plugin-loft"
   },
-  "author": "Ramon",
+  "author": "Loft Brasil Tecnologia Ltda",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha tests --recursive"
