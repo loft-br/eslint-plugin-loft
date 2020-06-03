@@ -93,11 +93,11 @@ ruleTester.run('prefer-compose', rule, {
                    )(withIntl(withStyles(styles)(withRouter(DreamApartmentsLP))));`,
             errors: [
                 {
-                    message: 'Prefer compose over nesting calls for HoCs. Found 3',
+                    message: 'Prefer compose over nesting calls for HoCs. Found 4',
                     type: 'CallExpression',
                 },
                 {
-                    message: 'Prefer compose over nesting calls for HoCs. Found 2',
+                    message: 'Prefer compose over nesting calls for HoCs. Found 3',
                     type: 'CallExpression',
                 },
                 {
@@ -111,7 +111,7 @@ ruleTester.run('prefer-compose', rule, {
             code: 'export default withRouter(compose(withStyles(styles), withIntl)(Comparison))',
             errors: [
                 {
-                    message: 'Prefer compose over nesting calls for HoCs. Found 2',
+                    message: 'Prefer compose over nesting calls for HoCs. Found 3',
                     type: 'CallExpression',
                 },
             ],
