@@ -1,7 +1,3 @@
-/**
- * @fileoverview Enforces the use of connect rather than fall into HOC composition hell
- * @author Ramon
- */
 'use strict';
 
 //------------------------------------------------------------------------------
@@ -21,26 +17,37 @@ RuleTester.setDefaultConfig({
     }
 });
 
-const USE_COMPOSE_TWO_OR_MORE = 'Use compose for 2 or more HOC';
-
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
+const options = [{
+    hocs: [
+        'withIntl',
+        'withTheme',
+        'withRouter',
+        'withStyles',
+        'connect',
+        'injectIntl'
+    ],
+}];
+
 const ruleTester = new RuleTester();
 ruleTester.run('prefer-compose', rule, {
-
     valid: [
         {
+            options,
             code: `
                 const Comparison = (props) => <div>aaa</div>;
                 export default withStyles(styles)(Comparison);
             `,
         },
         {
+            options,
             code: 'export default compose(withStyles(styles), withIntl)(Comparison)',
         },
         {
+            options,
             code: `
                 export default compose(
                     connect(mapStateToProps, {setUserFeatureFlags}),
@@ -50,59 +57,61 @@ ruleTester.run('prefer-compose', rule, {
             `,
         },
         {
+            options,
             code: `
                 const smokeTry1 = withStyles(styles)(Comparison);
                 const smokeTry2 = withIntl(smokeTry1);
                 export default connect(mapStateToProps, {setUserFeatureFlags})(smokeTry2);
             `,
         },
-        {
-            code: 'const trimStr = `\$\{str\}`.trim();'
-        }
     ],
 
     invalid: [
         {
+            options,
             code: 'export default injectIntl(withStyles(styles)(Step13Value));',
             errors: [{
-                message: USE_COMPOSE_TWO_OR_MORE,
+                message: 'Prefer compose over nesting calls for HoCs. Found 2',
                 type: 'CallExpression',
             }],
         },
         {
+            options,
             code: 'export default withStyles(styles)(injectIntl(About));',
             errors: [
                 {
-                    message: USE_COMPOSE_TWO_OR_MORE,
+                    message: 'Prefer compose over nesting calls for HoCs. Found 2',
                     type: 'CallExpression',
                 }
             ],
         },
         {
+            options,
             code: `export default connect(
                      mapStateToProps,
                      { setUserFeatureFlags }
                    )(withIntl(withStyles(styles)(withRouter(DreamApartmentsLP))));`,
             errors: [
                 {
-                    message: USE_COMPOSE_TWO_OR_MORE,
+                    message: 'Prefer compose over nesting calls for HoCs. Found 4',
                     type: 'CallExpression',
                 },
                 {
-                    message: USE_COMPOSE_TWO_OR_MORE,
+                    message: 'Prefer compose over nesting calls for HoCs. Found 3',
                     type: 'CallExpression',
                 },
                 {
-                    message: USE_COMPOSE_TWO_OR_MORE,
+                    message: 'Prefer compose over nesting calls for HoCs. Found 2',
                     type: 'CallExpression',
                 },
             ],
         },
         {
+            options,
             code: 'export default withRouter(compose(withStyles(styles), withIntl)(Comparison))',
             errors: [
                 {
-                    message: USE_COMPOSE_TWO_OR_MORE,
+                    message: 'Prefer compose over nesting calls for HoCs. Found 3',
                     type: 'CallExpression',
                 },
             ],
