@@ -1,7 +1,3 @@
-/**
- * @fileoverview Allows prop types to be used
- * @author Luigi Perotti
- */
 'use strict';
 
 //------------------------------------------------------------------------------
@@ -42,14 +38,12 @@ const code = `
 
 const ruleTester = new RuleTester();
 ruleTester.run('allowed-prop-types', rule, {
-
     valid: [
         {
             options: [{ allowed: ['intl', 'classes'] }],
             code,
         },
     ],
-
     invalid: [
         {
             options: [{ allowed: ['intl'] }],

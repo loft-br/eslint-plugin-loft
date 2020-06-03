@@ -65,7 +65,6 @@ ruleTester.run('prefer-compose', rule, {
             `,
         },
     ],
-
     invalid: [
         {
             options,

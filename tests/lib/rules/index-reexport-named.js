@@ -30,7 +30,6 @@ const mapFilename = (v) => {
 
 const ruleTester = new RuleTester();
 ruleTester.run('index-reexport-named', rule, {
-
     valid: [
         {
             code: `export { something, anotherthing } from 'somewhere';`,
@@ -51,7 +50,6 @@ ruleTester.run('index-reexport-named', rule, {
             `,
         },
     ].map(mapFilename),
-
     invalid: [
         {
             code: `export default Something;`,

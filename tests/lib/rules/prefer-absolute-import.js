@@ -23,7 +23,6 @@ RuleTester.setDefaultConfig({
 
 const ruleTester = new RuleTester();
 ruleTester.run('prefer-absolute-import', rule, {
-
     valid: [
         {
             code: `import something from 'somewhere';`,
@@ -38,7 +37,6 @@ ruleTester.run('prefer-absolute-import', rule, {
             code: `import something from './somewhere/yay/paths';`,
         },
     ],
-
     invalid: [
         {
             code: `import Something from '../../somewhere';`,
