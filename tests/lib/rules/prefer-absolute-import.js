@@ -1,7 +1,3 @@
-/**
- * @fileoverview Enforces the use of aboslute imports to avoid dot-hell
- * @author Luigi Perotti
- */
 'use strict';
 
 //------------------------------------------------------------------------------
