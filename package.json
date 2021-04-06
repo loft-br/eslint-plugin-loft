@@ -20,7 +20,10 @@
     "requireindex": "~1.1.0"
   },
   "devDependencies": {
-    "eslint": ">=4.18.2",
+    "eslint": "^7.21.0",
+    "eslint-plugin-jest": "^24.1.9",
+    "eslint-plugin-jest-dom": "^3.6.5",
+    "eslint-plugin-testing-library": "^3.10.1",
     "mocha": "^7.2.0"
   },
   "engines": {
